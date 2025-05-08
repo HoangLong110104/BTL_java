@@ -97,11 +97,17 @@
 
         /* Footer */
         .footer {
-            background-color: #004080;
-            color: white;
-            font-family: Arial, sans-serif;
-            padding: 40px 20px 10px;
-        }
+		    background-color: #004080;
+		    color: white;
+		    font-family: Arial, sans-serif;
+		    padding: 10px 20px;
+		    position: fixed;
+		    bottom: 0;
+		    left: 0;
+		    width: 100%;
+		    box-sizing: border-box; 
+		    z-index: 1000;
+}
 
         .footer-container {
             display: flex;
@@ -116,6 +122,16 @@
             flex: 1;
             min-width: 250px;
         }
+        
+        .footer-col a {
+		    color: white;
+		    text-decoration: none;
+		}
+		
+		.footer-col a:hover {
+		    color: #ccc;
+		    text-decoration: underline;
+		}
 
         .footer-logo {
             width: 180px;
@@ -138,6 +154,11 @@
             gap: 12px;
             margin-top: 10px;
         }
+        
+        .social-icons a {
+    		color: inherit;
+    		text-decoration: none;
+		}
 
         .social-icons i {
             font-size: 22px;
@@ -145,31 +166,35 @@
             transition: transform 0.2s;
         }
 
-        .social-icons i:hover {
+        .social-icons a:hover i {
             transform: scale(1.2);
             color: #ccc;
         }
+        
+		.back-to-top {
+		    position: fixed;
+		    bottom: 20px;
+		    right: 20px;
+		    font-size: 36px;
+		    color: #fff;
+		    background-color: #007bff;
+		    border-radius: 50%;
+		    width: 48px; 
+		    height: 48px;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    z-index: 1000;
+		    transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+		    text-decoration: none !important; 
+		}
+		
+		.back-to-top:hover {
+		    transform: scale(1.2);
+		    background-color: #fff; 
+		    color: #007bff;
+		}
 
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #003366;
-            padding: 10px 20px;
-            font-size: 14px;
-            margin-top: 20px;
-        }
-
-        .back-to-top {
-            color: white;
-            font-size: 24px;
-            transition: transform 0.2s;
-        }
-
-        .back-to-top:hover {
-            transform: scale(1.2);
-            color: #ccc;
-        }
     </style>
 </head>
 <body>
@@ -182,7 +207,7 @@
 
    <!-- Menu điều hướng -->
     <ul class="navbar">
-        <li><a href="#">TRANG HAUI</a></li>
+        <li><a href="https://www.haui.edu.vn/vn">TRANG HAUI</a></li>
 
         <li>
             <a href="#">GIỚI THIỆU <i class="bi bi-chevron-down ms-auto"></i></a>
@@ -267,32 +292,33 @@
 
             <div class="footer-col">
                 <h4>THÔNG TIN</h4>
-                <p>&gt; Liên hệ</p>
-                <p>&gt; Sơ đồ trang</p>
+                <p><a href="">&gt; Liên hệ</a></p>
+            	<p><a href="">&gt; Sơ đồ trường</a></p>
                 <h4>MẠNG XÃ HỘI</h4>
                 <div class="social-icons">
-                    <i class="bi bi-facebook"></i>
-                    <i class="bi bi-youtube"></i>
-                    <i class="bi bi-messenger"></i>
-                    <i class="bi bi-tiktok"></i>
+                    <a href="https://web.facebook.com/DHCNHNofficial" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.youtube.com/@HaUITV" target="_blank"><i class="bi bi-youtube"></i></a>
+                    <a href="https://web.facebook.com/messages/t/200315546493808" target="_blank"><i class="bi bi-messenger"></i></a>
+                    <a href="https://www.tiktok.com/@fitmedia.haui" target="_blank"><i class="bi bi-tiktok"></i></a>
                 </div>
             </div>
 
             <div class="footer-col">
                 <h4>BẢN ĐỒ CHỈ DẪN</h4>
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.480416133323!2d105.7331303148837!3d21.01371409369298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab45780ff4cf%3A0x4a8f98f36c73e0d5!2zVHLGsOG7nW5nIMSQ4bqhaSBIw6AgQ8O0bmcgTmdoaeG7h3AgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1629276068321!5m2!1svi!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.607123306446!2d105.7296514750296!3d21.01101108063321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab45780ff4cf%3A0x385fda93d8b3ecb3!2zSOG6o2kgxJDDtG5nIE5naGnhu4dwIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1715071600000!5m2!1svi!2s"
                     width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>Copyright © 2025 School Of Information And Communications Technology</p>
-            <a href="#"><i class="bi bi-arrow-up-circle-fill back-to-top"></i></a>
-        </div>
+        <div class="footer-bottom text-center">
+		    <p>Copyright © 2025 School Of Information And Communications Technology</p>
+		</div>
+		
+		<a href="#" class="back-to-top">
+		    <i class="bi bi-arrow-up-circle-fill"></i>
+		</a>
     </footer>
-
     <script src="<%= request.getContextPath() %>/script.js"></script>
 
 </body>
