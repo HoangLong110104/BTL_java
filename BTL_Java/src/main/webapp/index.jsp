@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>BTL_Java_Nhóm3</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/styles.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/fonts/themify-icons/themify-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,37 +35,83 @@
             background-color: #005599;
         }
 
-        /* Dropdown */
+        /* Dropdown menu */
         .dropdown {
             position: absolute;
             top: 100%;
             left: 0;
-            list-style: none;
             background-color: white;
+            list-style: none;
             min-width: 220px;
-            display: none !important;
-            padding: 0;
+            display: none;
+            padding: 10px 0;
             margin: 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            list-style: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
             z-index: 1000;
         }
 
         .dropdown li a {
             display: block;
-            padding: 12px 15px;
+            padding: 12px 20px;
             color: #003366;
             text-decoration: none;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .dropdown li a:hover {
-            background-color: #f2f2f2;
+            background-color: #f0f0f0;
         }
 
+        .submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: white;
+            min-width: 220px;
+            display: none; /* Thêm dòng này để ẩn mặc định */
+            padding: 10px 0;
+            margin: 0;
+            list-style: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 12px 20px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .submenu li a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Hiện dropdown khi hover */
         .navbar > li:hover > .dropdown {
-            display: block !important;
+            display: block;
         }
 
+        /* Hiện dropdown cấp đầu tiên khi hover vào li cha */
+        .navbar > li:hover > .dropdown {
+            display: block;
+        }
+
+        /* Hiện submenu của "ĐẠI HỌC" khi hover vào mục "ĐẠI HỌC" trong dropdown "ĐÀO TẠO" */
+        .navbar > li:nth-child(3) > .dropdown > li:first-child:hover > .submenu {
+            display: block;
+        }
+
+        /* Hiện submenu của "SAU ĐẠI HỌC" khi hover vào mục "SAU ĐẠI HỌC" trong dropdown "ĐÀO TẠO" */
+        .navbar > li:nth-child(3) > .dropdown > li:nth-child(2):hover > .submenu {
+            display: block;
+        }
         /* Logo */
         .logobar {
             display: flex;
@@ -94,19 +139,18 @@
             height: auto;
             display: block;
         }
-
-        /* Footer */
+                /* Footer */
         .footer {
-		    background-color: #004080;
-		    color: white;
-		    font-family: Arial, sans-serif;
-		    padding: 10px 20px;
-		    position: fixed;
-		    bottom: 0;
-		    left: 0;
-		    width: 100%;
-		    box-sizing: border-box; 
-		    z-index: 1000;
+            background-color: #004080;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
 }
 
         .footer-container {
@@ -122,16 +166,16 @@
             flex: 1;
             min-width: 250px;
         }
-        
+
         .footer-col a {
-		    color: white;
-		    text-decoration: none;
-		}
-		
-		.footer-col a:hover {
-		    color: #ccc;
-		    text-decoration: underline;
-		}
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: #ccc;
+            text-decoration: underline;
+        }
 
         .footer-logo {
             width: 180px;
@@ -154,11 +198,11 @@
             gap: 12px;
             margin-top: 10px;
         }
-        
+
         .social-icons a {
-    		color: inherit;
-    		text-decoration: none;
-		}
+            color: inherit;
+            text-decoration: none;
+        }
 
         .social-icons i {
             font-size: 22px;
@@ -170,42 +214,40 @@
             transform: scale(1.2);
             color: #ccc;
         }
-        
-		.back-to-top {
-		    position: fixed;
-		    bottom: 20px;
-		    right: 20px;
-		    font-size: 36px;
-		    color: #fff;
-		    background-color: #007bff;
-		    border-radius: 50%;
-		    width: 48px; 
-		    height: 48px;
-		    display: flex;
-		    justify-content: center;
-		    align-items: center;
-		    z-index: 1000;
-		    transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
-		    text-decoration: none !important; 
-		}
-		
-		.back-to-top:hover {
-		    transform: scale(1.2);
-		    background-color: #fff; 
-		    color: #007bff;
-		}
 
-    </style>
-</head>
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 36px;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: transform 0.2s, background-color 0.2s, border-color 0.2s;
+            text-decoration: none !important;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.2);
+            background-color: #fff;
+            color: #007bff;
+        }
+
+        </style>
+    </head>
 <body>
 
-    <!-- Logo -->
     <div class="logobar">
         <img src="<%= request.getContextPath() %>/images/logo.png" alt="Logo HaUI">
         <h1>KHOA CÔNG NGHỆ THÔNG TIN</h1>
     </div>
 
-   <!-- Menu điều hướng -->
     <ul class="navbar">
         <li><a href="https://www.haui.edu.vn/vn">TRANG HAUI</a></li>
 
@@ -224,8 +266,23 @@
         <li>
             <a href="#">ĐÀO TẠO <i class="bi bi-chevron-down ms-auto"></i></a>
             <ul class="dropdown">
-                <li><a href="#">ĐẠI HỌC</a></li>
-                <li><a href="#">SAU ĐẠI HỌC</a></li>
+                <li>
+                    <a href="#">ĐẠI HỌC</a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#">KHOA HỌC MÁY TÍNH</a></li>
+                        <li class="submenu-item"><a href="#">KỸ THUẬT PHẦN MỀM</a></li>
+                        <li class="submenu-item"><a href="#">HỆ THỐNG THÔNG TIN</a></li>
+                        <li class="submenu-item"><a href="#">CÔNG NGHỆ THÔNG TIN</a></li>
+                        <li class="submenu-item"><a href="#">CÔNG NGHỆ ĐA PHƯƠNG TIỆN</a></li>
+                        <li class="submenu-item"><a href="#">AN TOÀN THÔNG TIN</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">SAU ĐẠI HỌC</a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#">HỆ THỐNG THÔNG TIN</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">KẾ HOẠCH</a></li>
                 <li><a href="#">TIẾN ĐỘ</a></li>
                 <li><a href="#">QUY CHẾ, BIỂU MẪU</a></li>
@@ -270,17 +327,15 @@
         </li>
 
         <li><a href="#">THƯ VIỆN ẢNH</a></li>
-    </ul>s
+    </ul>
 
-    <!-- Banner slideshow -->
     <div class="slideshow-container">
         <img class="slide" src="<%= request.getContextPath() %>/images/ufi2226.jpg" alt="Ảnh 1">
         <img class="slide" src="<%= request.getContextPath() %>/images/ufi2234.jpg" alt="Ảnh 2">
         <img class="slide" src="<%= request.getContextPath() %>/images/ufi2235.jpg" alt="Ảnh 3">
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+        <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
                 <img src="<%= request.getContextPath() %>/images/logo.png" alt="HaUI Logo" class="footer-logo">
@@ -292,8 +347,8 @@
 
             <div class="footer-col">
                 <h4>THÔNG TIN</h4>
-                <p><a href="">&gt; Liên hệ</a></p>
-            	<p><a href="">&gt; Sơ đồ trường</a></p>
+                <p><a href="">> Liên hệ</a></p>
+                <p><a href="">> Sơ đồ trường</a></p>
                 <h4>MẠNG XÃ HỘI</h4>
                 <div class="social-icons">
                     <a href="https://web.facebook.com/DHCNHNofficial" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -312,14 +367,14 @@
             </div>
         </div>
         <div class="footer-bottom text-center">
-		    <p>Copyright © 2025 School Of Information And Communications Technology</p>
-		</div>
-		
-		<a href="#" class="back-to-top">
-		    <i class="bi bi-arrow-up-circle-fill"></i>
-		</a>
-    </footer>
-    <script src="<%= request.getContextPath() %>/script.js"></script>
+            <p>Copyright © 2025 School Of Information And Communications Technology</p>
+        </div>
 
+        <a href="#" class="back-to-top">
+            <i class="bi bi-arrow-up-circle-fill"></i>
+        </a>
+    </footer>
+
+    <script src="<%= request.getContextPath() %>/script.js"></script>
 </body>
 </html>
