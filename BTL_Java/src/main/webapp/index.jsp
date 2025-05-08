@@ -8,6 +8,169 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/fonts/themify-icons/themify-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Thanh điều hướng */
+        .navbar {
+            list-style: none;
+            background-color: #003366;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .navbar > li {
+            position: relative;
+        }
+
+        .navbar > li > a {
+            display: block;
+            padding: 14px 18px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .navbar > li:hover {
+            background-color: #005599;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style: none;
+            background-color: white;
+            min-width: 220px;
+            display: none !important;
+            padding: 0;
+            margin: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .dropdown li a {
+            display: block;
+            padding: 12px 15px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f2f2f2;
+        }
+
+        .navbar > li:hover > .dropdown {
+            display: block !important;
+        }
+
+        /* Logo */
+        .logobar {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+        }
+
+        .logobar img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slideshow-container img.slide {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #004080;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px 20px 10px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo {
+            width: 180px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-col p {
+            margin: 6px 0;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-icons i {
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.2);
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366;
+            padding: 10px 20px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .back-to-top {
+            color: white;
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.2);
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
 
@@ -17,7 +180,7 @@
         <h1>KHOA CÔNG NGHỆ THÔNG TIN</h1>
     </div>
 
-    <!-- Menu điều hướng -->
+   <!-- Menu điều hướng -->
     <ul class="navbar">
         <li><a href="#">TRANG HAUI</a></li>
 
@@ -82,7 +245,7 @@
         </li>
 
         <li><a href="#">THƯ VIỆN ẢNH</a></li>
-    </ul>
+    </ul>s
 
     <!-- Banner slideshow -->
     <div class="slideshow-container">
@@ -91,7 +254,46 @@
         <img class="slide" src="<%= request.getContextPath() %>/images/ufi2235.jpg" alt="Ảnh 3">
     </div>
 
-    <!-- Script -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <img src="<%= request.getContextPath() %>/images/logo.png" alt="HaUI Logo" class="footer-logo">
+                <h4>THÔNG TIN LIÊN HỆ</h4>
+                <p><i class="bi bi-geo-alt-fill"></i> Tầng 12, Nhà A1</p>
+                <p><i class="bi bi-geo-alt"></i> Số 298 đường Cầu Diễn, quận Bắc Từ Liêm, Hà Nội</p>
+                <p><i class="bi bi-envelope"></i> Email: sict@haui.edu.vn</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>THÔNG TIN</h4>
+                <p>&gt; Liên hệ</p>
+                <p>&gt; Sơ đồ trang</p>
+                <h4>MẠNG XÃ HỘI</h4>
+                <div class="social-icons">
+                    <i class="bi bi-facebook"></i>
+                    <i class="bi bi-youtube"></i>
+                    <i class="bi bi-messenger"></i>
+                    <i class="bi bi-tiktok"></i>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>BẢN ĐỒ CHỈ DẪN</h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.480416133323!2d105.7331303148837!3d21.01371409369298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab45780ff4cf%3A0x4a8f98f36c73e0d5!2zVHLGsOG7nW5nIMSQ4bqhaSBIw6AgQ8O0bmcgTmdoaeG7h3AgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1629276068321!5m2!1svi!2s"
+                    width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025 School Of Information And Communications Technology</p>
+            <a href="#"><i class="bi bi-arrow-up-circle-fill back-to-top"></i></a>
+        </div>
+    </footer>
+
     <script src="<%= request.getContextPath() %>/script.js"></script>
+
 </body>
 </html>
