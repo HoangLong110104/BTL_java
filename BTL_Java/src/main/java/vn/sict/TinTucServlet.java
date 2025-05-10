@@ -36,12 +36,12 @@ public class TinTucServlet extends HttpServlet {
                 id = Integer.parseInt(parts[parts.length - 1]); // Lấy phần cuối làm ID
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                 request.setAttribute("error", "ID tin tức không hợp lệ");
-                request.getRequestDispatcher("/tintuc.jsp").forward(request, response);
+                request.getRequestDispatcher("/XemTinTuc.jsp").forward(request, response);
                 return;
             }
         } else {
             request.setAttribute("error", "ID tin tức không được cung cấp");
-            request.getRequestDispatcher("/tintuc.jsp").forward(request, response);
+            request.getRequestDispatcher("/XemTinTuc.jsp").forward(request, response);
             return;
         }
 
